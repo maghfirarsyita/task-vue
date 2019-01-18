@@ -2,17 +2,17 @@
 
 This is a simple to-do list app created with Vue.js!
 
-##Project Structure 
+## Project Structure 
 
 ```
 ├── public              # Public folder.
+│   └── img             # Images file.
 │   └── index.html      # The HTML file of the project.
 │   └── favicon.co      # Icon file.
 ├── src                 # Main code of application.
-│   ├── App.vue         # Component that includes the javascripts, html and css.
-│   ├── App.test.js     # Unit testing file.
+│   ├── Components      # Component that includes the javascripts, html and css.
 │   └── main.js         # Main of application.
-│   └── setupTests.js   # Setup file for unit testing.
+├── tests               # Unit testing file.
 ├── .gitignore          # Ignored files when pushed to git.
 ├── node_modules        # Node modules file
 ├── package-lock.json   # Automatically generated when installing node packages.
