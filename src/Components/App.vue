@@ -5,14 +5,14 @@
       <my-header v-bind:openModal="openModal"></my-header>
       <my-list :seen="seen" v-bind:todos="todos" v-bind:showNoList="showNoList"></my-list>
     </div>
-    <my-modal :open="open" v-bind:hideModal="hideModal" v-bind:showList="showList" v-bind:todos="todos" ></my-modal>
+    <my-modal :open="open" v-bind:hideModal="hideModal" v-bind:showList="showList" v-bind:addTodo="addTodo" ></my-modal>
   </div>
 </template>
 
 <script>
 import Header from './Header.vue';
 import List from './List.vue';
-import Modal from './Modal.vue';
+import Modal from './Modal.vue'; 
 
 /* eslint-disable */ 
 export default {
@@ -36,7 +36,19 @@ export default {
     },
     showNoList(){
       this.seen = true;
-    }
+    },
+    addTodo(todo) {
+      if(!todo){
+          return;
+      }else{
+        this.todos.push({
+          title: todo,
+          done: false,
+        });
+        this.hideModal();
+        this.showList();
+      }
+    },
   },
   components: {
     'my-header': Header,

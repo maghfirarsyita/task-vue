@@ -1,8 +1,7 @@
 <template>
-<!-- eslint-disable -->
     <vue-modaltor :visible="open" @hide="hideModal">
       <div class="row modal-popup">
-        <form @submit.prevent="submitTodo">
+        <form  @submit.prevent="submitTodo">
           <div class="input-field col s10 offset-s1">
             <input type="text" v-model="newTodo" id="input-text" class="materialize-input">
             <label for="input-text">Input task</label>
@@ -24,66 +23,22 @@ export default {
         open: Boolean,
         openModal: Function,
         hideModal: Function,
-        showList: Function,
-        todos: Array,
-        visible: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-        resizeWidth: {
-            type: Object,
-        },
-        animationPanel: {
-            type: String,
-            required: false,
-            default: 'modal-fade',
-        },
-        animationParent: {
-            type: String,
-            required: false,
-            default: 'modal-fade',
-        },
-        bgOverlay: {
-            type: String,
-            required: false,
-            default: '#eee',
-        },
-        bgPanel: {
-            type: String,
-            required: false,
-            default: '#fff',
-        },
-        defaultWidth: {
-            type: String,
-            required: false,
-            default: '50%',
-        },
-        closeScroll: {
-            type: Boolean,
-            required: false,
-            default: true,
-        },
+        addTodo: Function,
     },
     data() {
-        return {
-            newTodo: '',
-        };
+      return {
+        newTodo: '',
+      }
     },
     methods: {
         submitTodo() {
-            if(!this.newTodo){
+            if (!this.newTodo) {
                 return;
             }else{
-                this.todos.push({
-                    title: this.newTodo,
-                    done: false,
-                });
-                this.hideModal();
-                this.showList();
+                this.addTodo(this.newTodo);
                 this.newTodo = '';
             }
-        },
-    },
+        }
+    }
 }
 </script>
